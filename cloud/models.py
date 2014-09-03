@@ -22,6 +22,9 @@ class Users(models.Model):
     user = models.CharField(max_length=30)
     password = models.CharField(max_length=64)
     create_date = models.DateTimeField('create date')
-    containers = models.ManyToManyField(Containers)
+class ContainerUser(models.Model):
+    container = models.ForeignKey(Containers)
+    user = models.ForeignKey(Users)
+    create_date = models.DateTimeField('create date')
 
 

@@ -13,7 +13,7 @@ class AccountsAdmin(admin.ModelAdmin):
     list_display = ('account_name', 'account_key')
 class UsersAdmin(admin.ModelAdmin):
     fieldsets = [
-        ('Users Information',{'fields': ['name','email','user','password','create_date','containers']}),
+        ('Users Information',{'fields': ['name','email','user','password','create_date']}),
     ]
     list_display = ('name','email','user','create_date')
 admin.site.register(Accounts,AccountsAdmin)

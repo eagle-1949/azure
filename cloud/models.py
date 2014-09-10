@@ -16,12 +16,16 @@ class Containers(models.Model):
     account = models.ForeignKey(Accounts)
     container_name = models.CharField(max_length=40)
     container_access=models.CharField(max_length=2, choices=CONTAINER_ACCESS)
+    def __unicode__(self):
+        return self.container_name
 class Users(models.Model):
     name = models.CharField(max_length=30)
     email = models.EmailField('email')
     user = models.CharField(max_length=30)
     password = models.CharField(max_length=64)
     create_date = models.DateTimeField('create date')
+    def __unicode__(self):
+        return self.name
 class ContainerUser(models.Model):
     container = models.ForeignKey(Containers)
     user = models.ForeignKey(Users)

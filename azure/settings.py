@@ -10,6 +10,14 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+import socket
+if socket.get_hostname() == 'azure':
+    DEBUG = True
+    TEMPLATE_DEBUG = True
+else:
+    DEBUG = False
+    TEMPLATE_DEBUG = False
+
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 
@@ -20,9 +28,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 SECRET_KEY = '%n%*hi^@cit7)5jbkiz_f0foi-nwlp7k(mves@(+i9f=928^+s'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
 
-TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = []
 
